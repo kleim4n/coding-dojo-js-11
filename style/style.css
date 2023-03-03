@@ -35,7 +35,6 @@ h1 {
 
 .container-rediments {
     width: 600px;
-    height: 200px;
     padding: 4rem;
     background: var(--white);
     border-radius: 0.5rem;
@@ -75,7 +74,21 @@ h1 {
     justify-content: center;
     width: 100%;
     height: 100%;
+    padding: 0 3.2rem;
     background-color: var(--date-info-color);
+}
+
+.data-picker button{
+    width: 3.5rem;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.data-picker button:nth-child(1){
+    border-radius: 5px 0px 0px 5px;
+}
+
+ul.container-rediments{
+    margin-top: 2.4rem;
 }
 
 button {
@@ -87,4 +100,5 @@ button {
     justify-content: center;
     align-items: center;
     color: var(--white);
+    cursor: pointer;
 }
