@@ -20,15 +20,15 @@
 				<h1>Reminders App</h1>
 				<div class="input-container">
 					<div class="data-picker">
-						<button>
+						<button onclick="minusMonthInDate()">
 							<img
 								class="arrow-rotated"
 								src="./assets/left-arrow.svg"
-								alt="seta apontando para esquerda"
-							/>
+								alt="seta apontando para esquerda"							
+							/>							
 						</button>
-						<p class="date-info">out, 2022</p>
-						<button>
+						<p id="display-date" class="date-info">out, 2022</p>
+						<button onclick="addMonthInDate()">
 							<img
 								src="./assets/right-arrow.svg"
 								alt="seta apontando para direita"

@@ -14,3 +14,19 @@ function createLi(hour, message) {
 	createItem.classList;
 	return createItem;
 }
+
+const date = new Date();
+
+function updateDate(){
+      document.getElementById("display-date").innerHTML = date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric'});
+    }
+
+function addMonthInDate(){
+  date.setMonth(date.getMonth() +1 );
+  updateDate();
+}
+
+function minusMonthInDate(){
+  date.setMonth(date.getMonth() -1 );
+  updateDate();
+}
