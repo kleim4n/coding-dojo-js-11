@@ -15,6 +15,7 @@ function addTask() {
 function createLi(hour, message) {
 	const createItem = document.createElement('li');
 	createItem.classList.add('reminder-item');
+	createItem.classList.add(`date-${date.getFullYear()}${date.getMonth()}`);
 	createItem.innerHTML = `
   <div>${message}</div>
   <div>${hour}</div>
@@ -27,6 +28,15 @@ const date = new Date();
 
 function updateDate() {
 	document.getElementById("display-date").innerHTML = date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+
+	let tasksUl = document.querySelectorAll("#reminder-list li");
+	for (let t = 0; t < tasksUl.length; t++){
+		if(tasksUl[t].classList.contains(`date-${date.getFullYear()}${date.getMonth()}`)) {
+			tasksUl[t].style.display = "flex";
+		} else {
+			tasksUl[t].style.display = "none";
+		}
+	}
 }
 
 updateDate();
