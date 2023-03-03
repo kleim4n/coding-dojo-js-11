@@ -89,11 +89,11 @@ h1 {
 }
 
 .reminder-item {
+	margin-top: 2.4rem;
 	width: 600px;
 	border-radius: 0.5rem;
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
 	padding: 2rem 4.5rem;
 	font-size: 1.6rem;
 	color: var(--black);
