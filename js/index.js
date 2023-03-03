@@ -1,5 +1,7 @@
 const regex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/g;
 
+
+
 function addTask() {
 	const reminderList = document.getElementById('reminder-list');
 	let hour;
@@ -7,6 +9,7 @@ function addTask() {
 		hour = prompt('Digite a hora escolhida! (hh:mm)');
 	}
 	const message = prompt('Digite sua mensagem: ');
+	document.getElementById('hidden').style.display = 'none'
 	reminderList.appendChild(createLi(hour, message));
 }
 function createLi(hour, message) {
@@ -37,3 +40,4 @@ function minusMonthInDate() {
 	date.setMonth(date.getMonth() - 1);
 	updateDate();
 }
+
