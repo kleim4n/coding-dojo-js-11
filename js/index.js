@@ -1,6 +1,4 @@
 const regex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/g;
-let tasksUl
-
 
 function addTask() {
 	const reminderList = document.getElementById('reminder-list');
@@ -12,6 +10,7 @@ function addTask() {
 	document.getElementById('hidden').style.display = 'none'
 	reminderList.appendChild(createLi(hour, message));
 }
+
 function createLi(hour, message) {
 	const createItem = document.createElement('li');
 	createItem.classList.add('reminder-item');
@@ -30,20 +29,18 @@ function updateDate() {
 	document.getElementById("display-date").innerHTML = date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
 
 	tasksUl = document.querySelectorAll("#reminder-list li");
-    tasksUl = ordenaPorHora(Array.from(tasksUl))
-	for (let t = 0; t < tasksUl.length; t++){
-		if(tasksUl[t].classList.contains(`date-${date.getFullYear()}${date.getMonth()}`)) {
-            document.getElementById('hidden').style.display = 'none'
+	let showNoTasks = true;
+	for (let t = 0; t < tasksUl.length; t++) {
+		if (tasksUl[t].classList.contains(`date-${date.getFullYear()}${date.getMonth()}`)) {
 			tasksUl[t].style.display = "flex";
+			showNoTasks = false;
 		} else {
 			tasksUl[t].style.display = "none";
-            document.getElementById('hidden').style.display = 'block'
 		}
 	}
+	document.getElementById('hidden').style.display = (showNoTasks) ? ('flex') : ('none');
 
 }
-
-updateDate();
 
 function addMonthInDate() {
 	date.setMonth(date.getMonth() + 1);
@@ -55,7 +52,21 @@ function minusMonthInDate() {
 	updateDate();
 }
 
-function ordenaPorHora(arr){
-    let tasksOrdenadas = arr.sort((a,b)=>a-b)
-    return tasksOrdenadas
+function ordenaPorHora(arr) {
+	let tasksOrdenadas = arr.sort((a, b) => a - b);
+	return tasksOrdenadas;
 }
+
+function generateRandomTasks(n = 24) {
+	const reminderList = document.getElementById('reminder-list');
+	for (let i = 0; i < n; i++) {
+		date.setMonth(Math.floor(Math.random() * 12));
+
+		let hour = `${Math.floor(Math.random() * 24)}:${Math.floor(Math.random() * 60)}`;
+		let message = `Mensagem nº${i} | ${date.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' })}`;
+		reminderList.appendChild(createLi(hour, message));
+	}
+}
+
+generateRandomTasks(24);
+updateDate();
