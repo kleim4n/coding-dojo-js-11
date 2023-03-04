@@ -33,15 +33,9 @@ function createLi(hour, message) {
 const date = new Date();
 
 function updateDate() {
-	
 	tasksUl = document.querySelectorAll("#reminder-list li");
-
 	var sorted = Array.from(tasksUl);
-
 	var removeList = document.getElementById('reminder-list');
-
-
-
 	while (removeList.firstChild) {
 		removeList.removeChild(removeList.firstChild);
 	  }
@@ -52,9 +46,7 @@ function updateDate() {
 			let temp = sorted[j];
 			sorted[j] = sorted[j + 1];
 			sorted[j + 1] = temp;
-		  }/*  else {
-			reminderList.appendChild();
-		  } */
+		  }
 		}
 	  }
 
@@ -73,9 +65,6 @@ function updateDate() {
 		const createItem = document.createElement('li');
 		createItem.setAttribute("id", "hidden");
 		createItem.classList.add('reminder-item');
-		
-		
-		
 		createItem.innerHTML = `
 	  <div>Nenhum lembrete cadastrado ainda</div>
 	 `;
@@ -92,8 +81,6 @@ function updateDate() {
 		createItem.classList.add(hour);
 		createItem.classList.add(message);
 		createItem.classList.add('reminder-item');
-		
-		
 		
 		createItem.innerHTML = `
 	  <div>${message2}</div>
@@ -119,10 +106,6 @@ function updateDate() {
 	  }
 
 	document.getElementById('hidden').style.display = (showNoTasks) ? ('flex') : ('none');
-
-	
-	
-
 	/* console.log(tasksUl) */
 }
 
