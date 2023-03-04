@@ -52,8 +52,6 @@ function updateDate() {
 
 	  const reminderList = document.getElementById('reminder-list');
 	  for (let t = 0; t < sorted.length; t++) {
-		console.log(parseInt(sorted[t].classList[0])>= 1)
-		console.log(sorted[t].classList)
 		if (parseInt(sorted[t].classList[0])>= 1) {
 			var message = sorted[t].classList[1]
 			reminderList.appendChild(createLi2(sorted[t].classList[2],(sorted[t].classList[3]), message));;
@@ -100,7 +98,6 @@ function updateDate() {
 			  showNoTasks = false;
 			  console.log(tasksUl[t])
 		  } else {
-			console.log(tasksUl[t])
 			  tasksUl[t].style.display = "none";
 		  }
 	  }
@@ -141,5 +138,13 @@ function generateRandomTasks(n = 24) {
 	}
 }
 
+function generate(){
+	const reminderList = document.getElementById('reminder-list');
+	reminderList.appendChild(createLi("07:00", "Comentário 01 - Teste"));
+	reminderList.appendChild(createLi("08:00", "Comentário 02 - Teste"));
+	reminderList.appendChild(createLi("09:00", "Comentário 03 - Teste"));
+}
+
 //generateRandomTasks(24);
+generate();
 updateDate();
